@@ -1,0 +1,23 @@
+1. Check to make sure that a repo has not been setup. Also Make sure that this folder isnt nested inside of a folder that already has a repo setup for it.
+   -> In your terminal type: ls -al
+   -> cd back up to parent folders if needed to check them as well.
+
+2. Run this command in your terminal (as long as no repo has been setup): git init
+
+3. Run this command in your terminal after initialization: mkdir server
+
+4. Then run: npx create-react-app client
+   -> This is the best practices naming convention going forward.
+   -> When you run create-react-app, React would normally initialize or create a git-repo for you. Since we did this already, it knows to skip doing it for us.
+
+5. Create a .gitignore in the root folder of your project.
+   -> In .gitignore add: node_modules/
+   -> Our client folder, which holds our react-app has a gitignore file as well. We created our root .gitignore b/c our server folder will also get a node_modules folder
+
+6. Create server.js inside your server folder
+   -> once done: cd into your server folder
+
+7. Run: npm init -y
+   -> This generates our package.json file
+
+8.
