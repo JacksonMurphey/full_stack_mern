@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+const cors = require('cors');  //cors = Cross Origin Resource Sharing. This is what allows our React Server to speak with our Express server
 const app = express();
 const port = 8000;
 
