@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
+import DeleteGame from './DeleteGame';
 
 const OneGame = (props) => {
 
@@ -20,15 +21,17 @@ const OneGame = (props) => {
     }, [id])
 
 
-    const deleteGame = () => {
-        axios.delete(`http://localhost:8000/api/games/${id}`)
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-                navigate('/')
-            })
-            .catch(err => console.log(err))
-    }
+    //NOTE: Created a DeleteGame Component... thus this is no longer needed
+
+    // const deleteGame = () => {
+    //     axios.delete(`http://localhost:8000/api/games/${id}`)
+    //         .then(res => {
+    //             console.log(res);
+    //             console.log(res.data);
+    //             navigate('/')
+    //         })
+    //         .catch(err => console.log(err))
+    // }
 
 
     return (
@@ -44,7 +47,8 @@ const OneGame = (props) => {
             <p>Rating: {game.rating}</p>
             <p>Maker: {game.company}</p>
             <Link to={`/game/edit/${id}`}><button>Edit Game</button></Link>
-            <button onClick={deleteGame}>Delete</button>
+            {/* <button onClick={deleteGame}>Delete</button> */}
+            <DeleteGame id={id} />
         </div>
     );
 }
