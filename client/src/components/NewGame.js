@@ -13,6 +13,7 @@ const NewGame = (props) => {
     const [rating, setRating] = useState('');
     const [company, setCompany] = useState('');
 
+    const [errors, setErrors] = useState('');
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -24,7 +25,12 @@ const NewGame = (props) => {
             })
             .catch(err => {
                 //Validations from our controller/model would go here.
-                console.log(err);
+                console.log(err)
+                console.log("err.response", err.response)
+                console.log("err.response.data", err.response.data)
+                console.log("err.response.data.error", err.response.data.error)
+                console.log("err.response.data.error.errors", err.response.data.error.errors);
+                setErrors(err.response.data.error.errors);
             })
     }
 
@@ -37,17 +43,20 @@ const NewGame = (props) => {
 
             <form onSubmit={submitHandler}>
                 <div>
+                    {errors.name && <p style={{ color: "red" }}> {errors.name.message}</p>}
                     <label htmlFor="">Name: </label>
                     <input type="text" value={name} onChange={e => setName(e.target.value)} />
                     {/* Technically we do not need to add value={} to any of our inputs, because once they submit, we will navigate to a new page. */}
                 </div>
 
                 <div>
+                    {errors.yearReleased && <p style={{ color: "red" }}> {errors.yearReleased.message}</p>}
                     <label htmlFor="">Year Released: </label>
                     <input type="text" value={yearReleased} onChange={e => setYearReleased(e.target.value)} />
                 </div>
 
                 <div>
+                    {errors.genre && <p style={{ color: "red" }}> {errors.genre.message}</p>}
                     <label htmlFor="">Genre: </label>
                     <select value={genre} name='genre' onChange={e => setGenre(e.target.value)}>
                         <option value='none' defaultValue hidden>Select a Genre</option>
@@ -64,11 +73,13 @@ const NewGame = (props) => {
                 </div>
 
                 <div>
+                    {errors.image && <p style={{ color: "red" }}> {errors.image.message}</p>}
                     <label htmlFor="">Image: </label>
                     <input type="text" value={image} onChange={e => setImage(e.target.value)} />
                 </div>
 
                 <div>
+                    {errors.rating && <p style={{ color: "red" }}> {errors.rating.message}</p>}
                     <label htmlFor="">Rating: </label>
                     <select value={rating} name='rating' onChange={e => setRating(e.target.value)}>
                         <option value='none' defaultValue hidden>Select a Rating</option>

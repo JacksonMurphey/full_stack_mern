@@ -23,7 +23,7 @@
 8. Run: npm install express mongoose
 
 9. Go to your github acct. and create a new repo. Give the new repo the same name as the root folder we are working in. In this case it would be 'full_stack_mern'
-   -> Once created, under the section with your 'git push' instructions, copy the remote add path: git remote add origin https://github.com/JacksonMurphey/full_stack_mern.git
+   -> Once created, under the section with your 'git push' instructions, copy the remote add path, ex: git remote add origin https://github.com/JacksonMurphey/full_stack_mern.git
    -> cd from your server folder back to our root folder 'FULL_STACK_MERN'
 
 10. Run: git remote add origin https://github.com/JacksonMurphey/full_stack_mern.git (we get this line from our github repo creation instructions under the push instructions)
@@ -36,9 +36,9 @@
 
 13. Run: git push (This will return an error fatal. In turn it will give us the correct push command to input)
     -> After you run the above line, you will get something back that looks like: git push --set-upstream origin master
-    -> Now going forward, anytime your add to this project, you can simply run 'git push' and your new files will be added.
+    -> Now going forward, anytime you add to this project, you can simply run 'git push' and your new files will be added.
 
-14. Run 'git push' after creating new files or after making changes to current ones. This will push the changes to the repo we have created.
+14. Run 'git push' after creating new files or after making changes to current ones. This will push the changes to the repo we have created.(This works after you have staged the files)
 
 15. cd into your client folder, run: npm install axios @reach/router --legacy-peer-deps
 

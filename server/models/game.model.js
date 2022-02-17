@@ -45,7 +45,8 @@ const GameSchema = new mongoose.Schema({
             'M',
             'AO',
             'No ESRB'
-        ]
+        ],
+        required: [true, 'Please Select the ERSB rating']
     },
 
     company: {
