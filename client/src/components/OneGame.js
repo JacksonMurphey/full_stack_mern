@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
 import DeleteGame from './DeleteGame';
+import HeaderGame from './HeaderGame';
 
 const OneGame = (props) => {
 
@@ -36,11 +37,11 @@ const OneGame = (props) => {
 
     return (
         <div>
-            <header>
-                <h1 style={{ fontSize: "50px", marginLeft: "450px", marginRight: "450px" }}>{game.name}</h1>
-                <Link to="/"><button>Home</button></Link>
-                {/* <Link to={"/"}>Home</Link> : This would work as well */}
-            </header>
+
+
+            <HeaderGame title={game.name} linkRoute='/' linkName='Home' />
+
+
             <img src={game.image} alt="Game" style={{ width: "1000px", width: "500px" }} />
             <p>Year Released: {game.yearReleased}</p>
             <p>Genre: {game.genre}</p>

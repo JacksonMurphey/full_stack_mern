@@ -43,3 +43,35 @@
 15. cd into your client folder, run: npm install axios @reach/router --legacy-peer-deps
 
 16. cd into your server folder, run: npm install cors
+
+**_ --- Adding New Packages For Login/Registration --- _**
+
+17. Cd into your server folder
+    --> run: npm install bcrypt cookie-parser dotenv jsonwebtoken
+
+18. Set up environment file (to hide our private information).
+    --> create .env file in the server folder
+    --> In this file we will put:
+
+    - MY_PORT = 8000
+    - DB_NAME = "<your db_name>"
+    - JWT_SECRET = "<name of your jwt_secret>"
+
+    --> Open .gitignore and add: '.env' (this is so that when we push to github, this file will not be pushed)
+
+19. Replace any references in our current code with our newly created variables for them
+    --> So we would need to find where we defined "port" and "dbName", and replace with "MY_PORT" and "DB_NAME"
+
+20. Create a new User Model
+    --> Include the following fields: username, email, password
+    --> Include validations for each: required, minlength, etc.
+    --> Include a special validation for 'password' matching a 'confirm password'
+    --> Use bcrypt to encrypt the password so it can never be un-encrypted
+
+21. Set up a Controller for login/registration/logout
+    --> User Registration
+    --> login method should make sure that email is in DB and their provided password 'matches' the hashed pw stored
+    --> login method should return a special cookie, with a signed jwt(javascript web-token)
+    --> logout should clear the jwt cookie from the server
+
+22. Wire up necessary changes in server.js

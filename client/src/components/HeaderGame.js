@@ -11,4 +11,4 @@ const HeaderGame = (props) => {
         </header>
     )
 }
-export default HeaderGame;
+export default HeaderGame;    

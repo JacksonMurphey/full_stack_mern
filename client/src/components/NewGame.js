@@ -30,13 +30,15 @@ const NewGame = (props) => {
         compnay: "",
         //errors: "" Commented out for now. 
     })
+
+    // NOTE: Did not have to include each key from my model
     const [errors, setErrors] = useState({
-        name: "",
-        yearReleased: "",
-        genre: "",
-        image: "",
-        rating: "",
-        compnay: "",
+        // name: "",
+        // yearReleased: "",
+        // genre: "",
+        // image: "",
+        // rating: "",
+        // compnay: "",
     })
 
     //REMINDER:: different inputs (text, checkbox, radio, etc) require the use of different attributes.

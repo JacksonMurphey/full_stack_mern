@@ -25,6 +25,7 @@ const FormGame = (props) => {
                 <label htmlFor="name">Name: </label>
                 <input type="text" name="name" onChange={changeHandler} value={game.name} />
             </div>
+
             <div>
                 {errors.yearReleased && <p style={{ color: "red" }}> {errors.yearReleased.message}</p>}
                 <label htmlFor="yearReleased">Year Released: </label>

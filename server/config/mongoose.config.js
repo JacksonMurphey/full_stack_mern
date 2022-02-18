@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
+//process.env.DB_NAME is calling the value we setup in our .env file for our dbname
+const dbName = process.env.DB_NAME;
 
-const dbName = 'games';
 mongoose.connect('mongodb://localhost/' + dbName, {
     useNewUrlParser: true,
     useUnifiedTopology: true

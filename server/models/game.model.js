@@ -51,7 +51,9 @@ const GameSchema = new mongoose.Schema({
 
     company: {
         type: String
-    }
+    },
+
+
 
 }, { timestamps: true })
 

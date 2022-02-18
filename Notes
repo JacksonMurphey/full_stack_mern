@@ -1,0 +1,14 @@
+**_ --- Login/Registration Middleware --- _**
+
+PRE:
+--> Pre middleware functions are executed one after another, when each middleware calls 'next'
+
+Example:
+    const schema = new Schema(...)
+    schema.pre('save', function(next) {
+        // Code on what to do
+        next();
+    })
+
+--> This 'pre' middleware is essentially saying, that before anything is saved to the Db, We need to do the following things.
+

@@ -22,14 +22,7 @@ const EditGame = (props) => {
         compnay: "",
         // errors: "" Commented out for now.
     })
-    const [errors, setErrors] = useState({
-        name: "",
-        yearReleased: "",
-        genre: "",
-        image: "",
-        rating: "",
-        compnay: "",
-    })
+    const [errors, setErrors] = useState({})
 
     // const [name, setName] = useState('');
     // const [yearReleased, setYearReleased] = useState('');
