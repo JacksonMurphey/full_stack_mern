@@ -37,7 +37,7 @@ module.exports = {
                     //check if this returned object is null. 
                     if (userRecord === null) {
                         //email not found
-                        req.status(400).json({ message: "Invalid Email or Password" })
+                        res.status(400).json({ message: "Invalid Email or Password" })
                     } else {
                         //email is found 
                         bcrypt.compare(req.body.password, userRecord.password) //this returns a boolean
@@ -62,17 +62,17 @@ module.exports = {
                                     ).json({
                                         message: "Successfully Logged In",
                                         userLoggedIn: userRecord.username,
-                                        userId: userRecord._id //Will update with a better way to handle this
+                                        userId: userRecord._id //Will update with a better way to handle this, as we dont want ids floating around
                                     })
                                 } else {
                                     res.status(400).json({
-                                        message: "Invalid Login or Email"
+                                        message: "Invalid Email or Password"
                                     })
                                 }
                             })
                             .catch((err) => {
                                 console.log(err)
-                                res.status(400).json({ message: "Invalid Login or Email" })
+                                res.status(400).json({ message: "Invalid Email or Password" })
                             })
                     }
                 })
@@ -91,20 +91,39 @@ module.exports = {
             })
         },
 
+    //Commented Out: For method to find user logged in by usertoken, more secure.
+    // --> May bring back if I want user logged in to view other users..?
+    // getOneUser:
+    //     (req, res) => {
+    //         User.findOne({ _id: req.params.id })
+    //             .then((oneUser) => {
+    //                 console.log(oneUser)
+    //                 res.json(oneUser)
+    //             })
+    //             .catch((err) => {
+    //                 console.log(err)
+    //                 res.status(400).json(err)
+    //             })
+    //     },
 
-    getOneUser:
+    getLoggedInUser:
         (req, res) => {
-            User.findOne({ _id: req.params.id })
-                .then((oneUser) => {
-                    console.log(oneUser)
-                    res.json(oneUser)
-                })
-                .catch((err) => {
-                    console.log(err)
-                    res.status(400).json(err)
-                })
+            User.findOne({ _id: req.jwtpayload.id })
+                .then(user => res.json(user))
+                .catch(user => res.json(err))
         },
 
-
+    findAllUsers:
+        (req, res) => {
+            User.find()
+                .then((allUsers) => {
+                    console.log(allUsers)
+                    res.json(allUsers)
+                })
+                .catch((err) => {
+                    console.log('Find All Users Failed')
+                    res.json({ message: "Something went wrong in findAllUsers", error: err })
+                })
+        }
 
 }

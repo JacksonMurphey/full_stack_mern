@@ -39,7 +39,7 @@ const OneGame = (props) => {
         <div>
 
 
-            <HeaderGame title={game.name} linkRoute='/' linkName='Home' />
+            <HeaderGame title={game.name} linkRoute='/home' linkName='Home' />
 
 
             <img src={game.image} alt="Game" style={{ width: "1000px", width: "500px" }} />
@@ -47,6 +47,7 @@ const OneGame = (props) => {
             <p>Genre: {game.genre}</p>
             <p>Rating: {game.rating}</p>
             <p>Maker: {game.company}</p>
+            {game.createdBy && <p>Created By: {game.createdBy.username}</p>}
             <Link to={`/game/edit/${id}`}><button>Edit Game</button></Link>
             {/* <button onClick={deleteGame}>Delete</button> */}
             <DeleteGame id={id} />

@@ -82,11 +82,12 @@ const NewGame = (props) => {
 
     const newSubmitHandler = e => {
         e.preventDefault()
-        axios.post('http://localhost:8000/api/games', newGame)
+        axios.post('http://localhost:8000/api/games', newGame, { withCredentials: true }) //since route now requires authenticate this route in gamecontroller we now need withcredentials:
+
             //Since I will now be creating an Object in useState({}), I no longer need to pass back the individual values of state as it was previously done above {name, yearRelease, genre, etc ...}
             .then(res => {
                 console.log(res.data)
-                navigate('/')
+                navigate('/home')
             })
             .catch(err => {
                 console.log(err.response.data)
@@ -102,7 +103,7 @@ const NewGame = (props) => {
                 <h1>Add a New Game</h1>
                 <Link to='/'><button>Home</button></Link>
             </header> */}
-            <HeaderGame title='Add a New Game' linkRoute='/' linkName='Home' />
+            <HeaderGame title='Add a New Game' linkRoute='/home' linkName='Home' />
 
             <FormGame
                 submitHandler={newSubmitHandler}
