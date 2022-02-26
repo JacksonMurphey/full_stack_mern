@@ -8,7 +8,7 @@
 
 4. Then run: npx create-react-app client
    -> This is the best practices naming convention going forward.
-   -> When you run create-react-app, React would normally initialize or create a git-repo for you. Since we did this already, it knows to skip doing it for us.
+   -> When you run: npx create-react-app client, React would normally initialize or create a git-repo for you. Since we did this already, it knows to skip doing it for us.
 
 5. Create a .gitignore in the root folder of your project.
    -> In .gitignore add: node_modules/

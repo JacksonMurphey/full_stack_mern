@@ -110,7 +110,7 @@ module.exports = {
         (req, res) => {
             User.findOne({ _id: req.jwtpayload.id })
                 .then(user => res.json(user))
-                .catch(user => res.json(err))
+                .catch(err => res.json(err))
         },
 
     findAllUsers:
